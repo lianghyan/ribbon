@@ -1,0 +1,18 @@
+server:
+  port: 6005
+spring:
+  application:
+    name: ribbon-zuul
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6001/eureka/
+zuul:
+  routes:
+    blue: 
+      url: http://localhost:6002
+    green:
+      url: http://localhost:6003

@@ -1,0 +1,13 @@
+server:
+  port: 6004
+spring:
+  application:
+    name: ribbon-service-consumer
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:6001/eureka/
+
